@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italia Deluxe - Maquillaje de Lujo Italiano</title>
+    <style>
+        :root {
+            --rosa-claro: #FFD6E0;
+            --rosa-oscuro: #FF85A2;
+            --dorado: #D4AF37;
+            --negro: #333333;
+            --blanco: #FFFFFF;
+            --gris: #F5F5F5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        body {
+            background-color: var(--gris);
+            color: var(--negro);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--rosa-claro), var(--rosa-oscuro));
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo h1 {
+            color: var(--blanco);
+            font-size: 28px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--dorado);
+        }
+        
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--blanco);
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--dorado);
+            color: var(--blanco);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: var(--rosa-oscuro);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .categories {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--rosa-oscuro);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--dorado);
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background-color: var(--blanco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .category-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .category-info {
+            padding: 20px;
+        }
+        
+        .category-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--rosa-oscuro);
+        }
+        
+        .products {
+            padding: 60px 0;
+            background-color: var(--blanco);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: var(--gris);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--negro);
+        }
+        
+        .product-info p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--rosa-oscuro);
+            margin-bottom: 15px;
+        }
+        
+        .btn-small {
+            padding: 8px 20px;
+            font-size: 14px;
+        }
+        
+        .newsletter {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--rosa-claro), var(--rosa-oscuro));
+            color: var(--blanco);
+            text-align: center;
+        }
+        
+        .newsletter h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            padding: 15px 30px;
+            background-color: var(--dorado);
+            color: var(--blanco);
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: var(--negro);
+        }
+        
+        footer {
+            background-color: var(--negro);
+            color: var(--blanco);
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--dorado);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--blanco);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--rosa-claro);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Modal de pago */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: var(--blanco);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--negro);
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: var(--rosa-oscuro);
+        }
+        
+        .payment-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--rosa-oscuro);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--dorado);
+            color: var(--blanco);
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--rosa-oscuro);
+        }
+
+        /* Página de categoría */
+        .category-page {
+            padding: 60px 0;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: var(--rosa-oscuro);
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Página principal (se oculta cuando se muestra una categoría) -->
+    <div id="homePage">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="F:\Italia\logo italia.jpg" alt="Italia Deluxe Logo">
+                        <h1>Italia Deluxe</h1>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Inicio</a></li>
+                            <li><a href="#" onclick="showCategory('labiales')">Labiales</a></li>
+                            <li><a href="#" onclick="showCategory('sombras')">Sombras</a></li>
+                            <li><a href="#" onclick="showCategory('bases')">Bases</a></li>
+                            <li><a href="#" onclick="showCategory('brochas')">Brochas</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Maquillaje de Lujo Italiano</h2>
+                <p>Descubre la elegancia y calidad del maquillaje artesanal italiano. Productos exclusivos con ingredientes naturales de la Toscana.</p>
+                <a href="#" class="btn" onclick="showCategory('labiales')">Explora nuestra colección</a>
+            </div>
+        </section>
+        
+        <section class="categories">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Nuestras Categorías</h2>
+                </div>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <img src="F:\Italia\labiales\💕Lipstick Mousse Matte italia deluxe….jpg" alt="Labiales">
+                        <div class="category-info">
+                            <h3>Labiales</h3>
+                            <button class="btn btn-small" onclick="showCategory('labiales')">Ver productos</button>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <img src="F:\Italia\sombras.jpg" alt="Sombras">
+                        <div class="category-info">
+                            <h3>Sombras</h3>
+                            <button class="btn btn-small" onclick="showCategory('sombras')">Ver productos</button>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <img src="F:\Italia\bases\bases.jpg" alt="Bases">
+                        <div class="category-info">
+                            <h3>Bases</h3>
+                            <button class="btn btn-small" onclick="showCategory('bases')">Ver productos</button>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <img src="F:\Italia\brochas\brochas.jpg" alt="Brochas">
+                        <div class="category-info">
+                            <h3>Brochas</h3>
+                            <button class="btn btn-small" onclick="showCategory('brochas')">Ver productos</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="products">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Productos Destacados</h2>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="F:\Italia\labiales\LABIAL MOUSSE MATTE LIQUID LIPSTICK ITALIA DELUXE.jpg" alt="Labial Matte Deluxe">
+                        <div class="product-info">
+                            <h3>Labial Matte Deluxe</h3>
+                            <p>Labial de larga duración con acabado mate y fórmula hidratante.</p>
+                            <div class="price">L. 850</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\sombras1.jpg" alt="Paleta Sombras Toscana">
+                        <div class="product-info">
+                            <h3>Paleta Sombras Toscana</h3>
+                            <p>12 tonos inspirados en los atardeceres de la Toscana italiana.</p>
+                            <div class="price">L. 1,200</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\bases\base2.jpg" alt="Base Líquida Satinada">
+                        <div class="product-info">
+                            <h3>Base Líquida Satinada</h3>
+                            <p>Cobertura media-alta con acabado satinado y efecto luminoso.</p>
+                            <div class="price">L. 1,350</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\brochas\94c2afc3-2b0b-4492-bc6e-48032454b4e9.jpg" alt="Set Brochas Premium">
+                        <div class="product-info">
+                            <h3>Set Brochas Premium</h3>
+                            <p> brochas profesionales con pelo sintético de alta calidad.</p>
+                            <div class="price">L. 1,780</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="newsletter">
+            <div class="container">
+                <h2>Únete a nuestro newsletter</h2>
+                <p>Recibe ofertas exclusivas, novedades y consejos de maquillaje directamente en tu correo.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Tu correo electrónico">
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>Italia Deluxe</h3>
+                        <p>Maquillaje de lujo italiano con tradición artesanal y los mejores ingredientes naturales.</p>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Enlaces rápidos</h3>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Inicio</a></li>
+                            <li><a href="#" onclick="showCategory('labiales')">Labiales</a></li>
+                            <li><a href="#" onclick="showCategory('sombras')">Sombras</a></li>
+                            <li><a href="#" onclick="showCategory('bases')">Bases</a></li>
+                            <li><a href="#" onclick="showCategory('brochas')">Brochas</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contacto</h3>
+                        <ul>
+                            <li>Milano, Italia</li>
+                            <li>info@italiadeluxe.com</li>
+                            <li>+39 02 1234567</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Italia Deluxe. Emely Galindo. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Página de categoría de labiales -->
+    <div id="labialesPage" style="display: none;">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="F:\Italia\logo italia.jpg" alt="Italia Deluxe Logo">
+                        <h1>Italia Deluxe</h1>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Inicio</a></li>
+                            <li><a href="#" onclick="showCategory('labiales')">Labiales</a></li>
+                            <li><a href="#" onclick="showCategory('sombras')">Sombras</a></li>
+                            <li><a href="#" onclick="showCategory('bases')">Bases</a></li>
+                            <li><a href="#" onclick="showCategory('brochas')">Brochas</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <section class="category-page">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="#" onclick="showHomePage()">Inicio</a> <span>></span> <a href="#">Labiales</a>
+                </div>
+                <div class="section-title">
+                    <h2>Labiales Italia Deluxe</h2>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="F:\Italia\labiales\Italia Deluxe.jpg" alt="Labial Matte Deluxe">
+                        <div class="product-info">
+                            <h3>Labial Matte Deluxe</h3>
+                            <p>Labial de larga duración con acabado mate y fórmula hidratante.</p>
+                            <div class="price">L. 850</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\labiales\LABIAL MOUSSE MATTE LIQUID LIPSTICK ITALIA DELUXE.jpg" alt="Labial Líquido Intenso">
+                        <div class="product-info">
+                            <h3>Labial Líquido Intenso</h3>
+                            <p>Color vibrante que dura hasta 12 horas sin resecar tus labios.</p>
+                            <div class="price">L. 920</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\labiales\descargar.jpg" alt="Labial Satinado Eleganza">
+                        <div class="product-info">
+                            <h3>Labial Satinado Eleganza</h3>
+                            <p>Acabado satinado con extractos de rosa mosqueta para labios suaves.</p>
+                            <div class="price">L. 780</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\labiales\descargar (1).jpg" alt="Labial Gloss Brillante">
+                        <div class="product-info">
+                            <h3>Labial Gloss Brillante</h3>
+                            <p>Brillo intenso con efecto 3D y protección solar SPF 15.</p>
+                            <div class="price">L. 650</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\labiales\Labial Mousse Matte Liquido Italia Deluxe.jpg"  alt="Labial Líquido Matte">
+                        <div class="product-info">
+                            <h3>Labial Líquido Matte</h3>
+                            <p>Fórmula ultra ligera con pigmentación intensa y acabado mate.</p>
+                            <div class="price">L. 890</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\labiales\osito.jpg" alt="Set Labiales Mini Deluxe">
+                        <div class="product-info">
+                            <h3>Set Labiales Mini Deluxe</h3>
+                            <p>Colección de 6 mini labiales con los tonos más vendidos.</p>
+                            <div class="price">L. 1,450</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>Italia Deluxe</h3>
+                        <p>Maquillaje de lujo italiano con tradición artesanal y los mejores ingredientes naturales.</p>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Enlaces rápidos</h3>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Inicio</a></li>
+                            <li><a href="#" onclick="showCategory('labiales')">Labiales</a></li>
+                            <li><a href="#" onclick="showCategory('sombras')">Sombras</a></li>
+                            <li><a href="#" onclick="showCategory('bases')">Bases</a></li>
+                            <li><a href="#" onclick="showCategory('brochas')">Brochas</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contacto</h3>
+                        <ul>
+                            <li>Milano, Italia</li>
+                            <li>info@italiadeluxe.com</li>
+                            <li>+39 02 1234567</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Italia Deluxe. Emely Galindo. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Página de categoría de sombras -->
+    <div id="sombrasPage" style="display: none;">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="F:\Italia\logo italia.jpg" alt="Italia Deluxe Logo">
+                        <h1>Italia Deluxe</h1>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Inicio</a></li>
+                            <li><a href="#" onclick="showCategory('labiales')">Labiales</a></li>
+                            <li><a href="#" onclick="showCategory('sombras')">Sombras</a></li>
+                            <li><a href="#" onclick="showCategory('bases')">Bases</a></li>
+                            <li><a href="#" onclick="showCategory('brochas')">Brochas</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <section class="category-page">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="#" onclick="showHomePage()">Inicio</a> <span>></span> <a href="#">Sombras</a>
+                </div>
+                <div class="section-title">
+                    <h2>Sombras Italia Deluxe</h2>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="F:\Italia\sombras1.jpg" alt="Paleta Sombras Toscana">
+                        <div class="product-info">
+                            <h3>Paleta Sombras Toscana</h3>
+                            <p>12 tonos inspirados en los atardeceres de la Toscana italiana.</p>
+                            <div class="price">L. 1,200</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\sombras3.jpg" alt="Paleta Sombras Venezia">
+                        <div class="product-info">
+                            <h3>Paleta Sombras Venezia</h3>
+                            <p>15 tonos metálicos inspirados en los canales de Venecia.</p>
+                            <div class="price">L. 1,350</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\sombras4.jpg" alt="Sombras Individuales Roma">
+                        <div class="product-info">
+                            <h3>Sombras Roma</h3>
+                            <p>Sombras en crema con alta pigmentación y larga duración.</p>
+                            <div class="price">L. 550 c/u</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\sombras2.jpg" alt="Paleta Sombras Milano">
+                        <div class="product-info">
+                            <h3>Sombras Liquidas Milano</h3>
+                            <p>9 tonos neutros para looks naturales y sofisticados.</p>
+                            <div class="price">L. 980</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\sombras6.jpg" alt="Sombras Líquidas Brillantes">
+                        <div class="product-info">
+                            <h3>Sombras Líquidas Brillantes</h3>
+                            <p>Efecto metalizado ultra brillante que dura todo el día.</p>
+                            <div class="price">L. 720</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\sombras5.jpg" alt="Set Sombras Deluxe">
+                        <div class="product-info">
+                            <h3>Set Sombras Deluxe</h3>
+                            <p>3 paletas completas con 36 tonos para todas las ocasiones.</p>
+                            <div class="price">L. 2,850</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>Italia Deluxe</h3>
+                        <p>Maquillaje de lujo italiano con tradición artesanal y los mejores ingredientes naturales.</p>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Enlaces rápidos</h3>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Inicio</a></li>
+                            <li><a href="#" onclick="showCategory('labiales')">Labiales</a></li>
+                            <li><a href="#" onclick="showCategory('sombras')">Sombras</a></li>
+                            <li><a href="#" onclick="showCategory('bases')">Bases</a></li>
+                            <li><a href="#" onclick="showCategory('brochas')">Brochas</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contacto</h3>
+                        <ul>
+                            <li>Milano, Italia</li>
+                            <li>info@italiadeluxe.com</li>
+                            <li>+39 02 1234567</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Italia Deluxe. Emely Galindo. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Página de categoría de bases -->
+    <div id="basesPage" style="display: none;">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="F:\Italia\logo italia.jpg" alt="Italia Deluxe Logo">
+                        <h1>Italia Deluxe</h1>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Inicio</a></li>
+                            <li><a href="#" onclick="showCategory('labiales')">Labiales</a></li>
+                            <li><a href="#" onclick="showCategory('sombras')">Sombras</a></li>
+                            <li><a href="#" onclick="showCategory('bases')">Bases</a></li>
+                            <li><a href="#" onclick="showCategory('brochas')">Brochas</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <section class="category-page">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="#" onclick="showHomePage()">Inicio</a> <span>></span> <a href="#">Bases</a>
+                </div>
+                <div class="section-title">
+                    <h2>Bases Italia Deluxe</h2>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="F:\Italia\bases\base2.jpg" alt="Base Líquida Satinada">
+                        <div class="product-info">
+                            <h3>Base Líquida Satinada</h3>
+                            <p>Cobertura media-alta con acabado satinado y efecto luminoso.</p>
+                            <div class="price">L. 1,350</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\bases\base1.jpg" alt="Base Matte Full Cover">
+                        <div class="product-info">
+                            <h3>Base Matte Full Cover</h3>
+                            <p>Cobertura completa con acabado mate que controla el brillo.</p>
+                            <div class="price">L. 1,420</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\bases\base3.jpg" alt="Base BB Cream Hidratante">
+                        <div class="product-info">
+                            <h3>Base BB Cream Hidratante</h3>
+                            <p>Hidratación intensa + cobertura ligera con SPF 30.</p>
+                            <div class="price">L. 980</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\bases\base4.jpg" alt="Base en Polvo Mineral">
+                        <div class="product-info">
+                            <h3>Base liquida Mineral</h3>
+                            <p>Fórmula natural que unifica el tono sin obstruir poros.</p>
+                            <div class="price">L. 1,150</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\bases\base5.jpg" alt="Base Líquida Iluminadora">
+                        <div class="product-info">
+                            <h3>Base Líquida Iluminadora</h3>
+                            <p>Efecto glow desde dentro con partículas iluminadoras.</p>
+                            <div class="price">L. 1,280</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\bases\bases.jpg" alt="Set Bases Completo">
+                        <div class="product-info">
+                            <h3>Set Bases Completo</h3>
+                            <p>3 bases en diferentes fórmulas + brochas de aplicación.</p>
+                            <div class="price">L. 3,200</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>Italia Deluxe</h3>
+                        <p>Maquillaje de lujo italiano con tradición artesanal y los mejores ingredientes naturales.</p>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Enlaces rápidos</h3>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Inicio</a></li>
+                            <li><a href="#" onclick="showCategory('labiales')">Labiales</a></li>
+                            <li><a href="#" onclick="showCategory('sombras')">Sombras</a></li>
+                            <li><a href="#" onclick="showCategory('bases')">Bases</a></li>
+                            <li><a href="#" onclick="showCategory('brochas')">Brochas</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contacto</h3>
+                        <ul>
+                            <li>Milano, Italia</li>
+                            <li>info@italiadeluxe.com</li>
+                            <li>+39 02 1234567</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Italia Deluxe. Emely Galindo. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Página de categoría de brochas -->
+    <div id="brochasPage" style="display: none;">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="F:\Italia\logo italia.jpg" alt="Italia Deluxe Logo">
+                        <h1>Italia Deluxe</h1>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Inicio</a></li>
+                            <li><a href="#" onclick="showCategory('labiales')">Labiales</a></li>
+                            <li><a href="#" onclick="showCategory('sombras')">Sombras</a></li>
+                            <li><a href="#" onclick="showCategory('bases')">Bases</a></li>
+                            <li><a href="#" onclick="showCategory('brochas')">Brochas</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <section class="category-page">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="#" onclick="showHomePage()">Inicio</a> <span>></span> <a href="#">Brochas</a>
+                </div>
+                <div class="section-title">
+                    <h2>Brochas Italia Deluxe</h2>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="F:\Italia\brochas\94c2afc3-2b0b-4492-bc6e-48032454b4e9.jpg" alt="Set Brochas Premium">
+                        <div class="product-info">
+                            <h3>Set Brochas Premium</h3>
+                            <p> brochas profesionales con pelo sintético de alta calidad.</p>
+                            <div class="price">L. 1,780</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\brochas\brochas.jpg" alt="Brocha para Base Deluxe">
+                        <div class="product-info">
+                            <h3>Brocha para Base Deluxe</h3>
+                            <p>Diseño ergonómico para aplicación perfecta de base líquida.</p>
+                            <div class="price">L. 650</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\brochas\MAANGE MAANGE 20pcs Professional Soft Long Tube Makeup Brush Set With Velvet Bag,Soft Foundation Brush,Eyeshadow Brush,Eyebrow Brush,Blending Brush,Highlight Brush,Concealer Brush,Makeup Brush With Soft Hair And Ski.jpg" alt="Brocha para Contorno">
+                        <div class="product-info">
+                            <h3>Brocha para Contorno</h3>
+                            <p>Forma angular perfecta para esculpir pómulos y mandíbula.</p>
+                            <div class="price">L. 580</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\brochas\Set de Brochas de Maquillaje 10Pcs City Girl S100-1.jpg" alt="Set Brochas para Sombras">
+                        <div class="product-info">
+                            <h3>Set Brochas para Sombras</h3>
+                            <p>5 brochas especializadas para aplicación de sombras.</p>
+                            <div class="price">L. 1,150</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\brochas1.jpg" alt="Brocha Kabuki Mineral">
+                        <div class="product-info">
+                            <h3>Brocha Kabuki Mineral</h3>
+                            <p>Densa y suave para aplicación de polvos minerales.</p>
+                            <div class="price">L. 720</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="F:\Italia\brochas2.jpg" alt="Set Brochas Viaje">
+                        <div class="product-info">
+                            <h3>Set Brochas Viaje</h3>
+                            <p> brochas esenciales en estuche compacto para viajar.</p>
+                            <div class="price">L. 1,450</div>
+                            <button class="btn btn-small open-payment">Comprar ahora</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>Italia Deluxe</h3>
+                        <p>Maquillaje de lujo italiano con tradición artesanal y los mejores ingredientes naturales.</p>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Enlaces rápidos</h3>
+                        <ul>
+                            <li><a href="#" onclick="showHomePage()">Inicio</a></li>
+                            <li><a href="#" onclick="showCategory('labiales')">Labiales</a></li>
+                            <li><a href="#" onclick="showCategory('sombras')">Sombras</a></li>
+                            <li><a href="#" onclick="showCategory('bases')">Bases</a></li>
+                            <li><a href="#" onclick="showCategory('brochas')">Brochas</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contacto</h3>
+                        <ul>
+                            <li>Milano, Italia</li>
+                            <li>info@italiadeluxe.com</li>
+                            <li>+39 02 1234567</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Italia Deluxe. Emely Galindo. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Modal de pago -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="payment-form">
+                <h2>Completa tu compra</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="card-number">Número de tarjeta</label>
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                    </div>
+                    <div class="form-group">
+                        <label for="card-name">Nombre en la tarjeta</label>
+                        <input type="text" id="card-name" placeholder="Nombre Apellido">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiry">Fecha de expiración</label>
+                            <input type="text" id="expiry" placeholder="MM/AA">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="123">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" placeholder="tu@email.com">
+                    </div>
+                    <button type="submit" class="submit-btn">Pagar ahora</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Funcionalidad para mostrar/ocultar páginas
+        function showHomePage() {
+            document.getElementById('homePage').style.display = 'block';
+            document.getElementById('labialesPage').style.display = 'none';
+            document.getElementById('sombrasPage').style.display = 'none';
+            document.getElementById('basesPage').style.display = 'none';
+            document.getElementById('brochasPage').style.display = 'none';
+            window.scrollTo(0, 0);
+        }
+
+        function showCategory(category) {
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('labialesPage').style.display = 'none';
+            document.getElementById('sombrasPage').style.display = 'none';
+            document.getElementById('basesPage').style.display = 'none';
+            document.getElementById('brochasPage').style.display = 'none';
+            
+            if (category === 'labiales') {
+                document.getElementById('labialesPage').style.display = 'block';
+            } else if (category === 'sombras') {
+                document.getElementById('sombrasPage').style.display = 'block';
+            } else if (category === 'bases') {
+                document.getElementById('basesPage').style.display = 'block';
+            } else if (category === 'brochas') {
+                document.getElementById('brochasPage').style.display = 'block';
+            }
+            
+            window.scrollTo(0, 0);
+        }
+
+        // Modal de pago
+        const modal = document.getElementById("paymentModal");
+        const btns = document.querySelectorAll(".open-payment");
+        const span = document.getElementsByClassName("close")[0];
+        
+        btns.forEach(btn => {
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+        });
+        
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Evitar que el formulario se envíe
+        document.querySelector('.payment-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por tu compra simulada. Este es un sitio de demostración.');
+            modal.style.display = "none";
+        });
+
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por suscribirte a nuestro newsletter!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
